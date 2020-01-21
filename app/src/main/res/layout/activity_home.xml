@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".activity_home">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="79dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="171dp"
+        android:text="Permissions"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_tel"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="89dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginEnd="161dp"
+        android:text="Bonjour"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.916" />
+
+    <ImageView
+        android:id="@+id/isen_view"
+        android:layout_width="119dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/isen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="75dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="2dp"
+        android:text="Cycle de vie"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_message"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="81dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="171dp"
+        android:text="Webservices"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_download"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/button_tel"
+        android:layout_width="79dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="74dp"
+        android:background="#D32F2F"
+        android:scaleType="fitXY"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_download"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/phone_white" />
+
+    <ImageButton
+        android:id="@+id/button_download"
+        android:layout_width="79dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="90dp"
+        android:background="#D32F2F"
+        android:scaleType="fitXY"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/inbox" />
+
+    <ImageButton
+        android:id="@+id/button_message"
+        android:layout_width="79dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="75dp"
+        android:background="#D32F2F"
+        android:scaleType="fitXY"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_save"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/comment" />
+
+    <ImageButton
+        android:id="@+id/button_save"
+        android:layout_width="79dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="328dp"
+        android:background="#D32F2F"
+        android:scaleType="fitXY"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/sim" />
+
+    <TextView
+        android:id="@+id/Sauvegarde"
+        android:layout_width="89dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="104dp"
+        android:text="Sauvegarde"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/button_save"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
