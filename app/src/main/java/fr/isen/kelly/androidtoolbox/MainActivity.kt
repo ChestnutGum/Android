@@ -28,19 +28,12 @@ class MainActivity : AppCompatActivity() {
         //on récupère l'identifiant
         my_Id=findViewById(R.id.my_Id)
         //bouton valider
-        myButtonValidate=findViewById(R.id.button_validate)
+        myButtonValidate=findViewById(R.id.button_validate) as Button
         //myButtonValidate.isEnabled=false //désactiver le bouton au lancement de l'application
         //puis l'activer lorsqu'il a saisi ses infos
         //on récupère le mot de passe
         myPass=findViewById(R.id.myPass)
 
-
-
-        //fonction de notre onClick
-        //vérification du mot de passe et de l'identifiant utilisateur
-        //fun login(view:View) {
-
-        //}
 
 
         // set on-click listener
@@ -62,13 +55,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-
-
-        //myButtonValidate.setOnClickListener(object : View.OnClickListener() {
-            //fun onClick(v: View) {
-                // The user just clicked
-           // }
-        //})
 
 
     }
