@@ -1,15 +1,10 @@
 package fr.isen.kelly.androidtoolbox
-
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
-import android.support.v4.app.*
-import android.view.View
 import android.widget.Button
-
 
 class activity_cycle : AppCompatActivity(){
 
@@ -27,17 +22,14 @@ class activity_cycle : AppCompatActivity(){
         button1.setOnClickListener {
             // Obtenir l'instance de fragment de texte
             val textFragment = FragmentCycle()
-
             // Obtenir l'instance du gestionnaire de fragment
             val manager = supportFragmentManager
-
             // Commencer la transition du fragment à l'aide du gestionnaire de fragments
             val transaction = manager.beginTransaction()
 
             // Remplacer le fragment dans le conteneur
             transaction.replace(R.id.myFragment,textFragment)
             transaction.addToBackStack(null)
-
             // Finaliser la transition
             transaction.commit()
         }
@@ -48,12 +40,9 @@ class activity_cycle : AppCompatActivity(){
         //modification du TextView
         startTextView= findViewById(R.id.log_view)
         startTextView.text="Etat actuel de l'activité : Owner onCreate"
-
-
-
     }
 
-
+    //état onStart
     override fun onStart() {
         super.onStart()
         //Log.i(TAG, "Owner onStart")
@@ -62,13 +51,13 @@ class activity_cycle : AppCompatActivity(){
         startTextView= findViewById(R.id.log_view)
         startTextView.text="Etat actuel de l'activité : Owner onStart"
     }
-
+    //état onPause
     override fun onPause() {
         super.onPause()
         //logs
         Log.i(TAG, "Owner onPause")
     }
-
+    //état onResume
     override fun onResume() {
         super.onResume()
         //Log.i(TAG, "Owner onResume")
@@ -77,13 +66,13 @@ class activity_cycle : AppCompatActivity(){
         startTextView= findViewById(R.id.log_view)
         startTextView.text="Etat actuel de l'activité : Owner onResume"
     }
-
+    //état onStop
     override fun onStop() {
         super.onStop()
         //logs
         Log.i(TAG, "Owner onStop")
     }
-
+    //état onDestroy
     override fun onDestroy() {
         super.onDestroy()
         //logs
@@ -91,5 +80,4 @@ class activity_cycle : AppCompatActivity(){
         //un toast quand l'activité est complètement détruite
         Toast.makeText(this@activity_cycle, "Destroy !", Toast.LENGTH_LONG).show()
     }
-
 }
