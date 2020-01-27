@@ -120,6 +120,16 @@ class StorageActivity : AppCompatActivity() {
         }
     }
 
+    fun getAge(year:Int,month:Int,day:Int){
+        val cal: Calendar = Calendar.getInstance()
+        var yearNow:Int=cal.get(Calendar.YEAR)
+        var monthNow:Int=cal.get(Calendar.MONTH)
+        var dayNow:Int=cal.get(Calendar.DAY_OF_MONTH)
+        
+
+
+    }
+
     companion object {
         private const val JSON_FILE = "data_user_toolbox.json"
         private const val LAST_NAME_KEY = "LastName"
