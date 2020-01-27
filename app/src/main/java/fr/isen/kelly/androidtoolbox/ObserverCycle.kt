@@ -3,8 +3,8 @@ import android.util.Log
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.*
 
-class activity_cycleObserver : LifecycleObserver {
-    var TAG:String="activity_cycleObserver"
+class ObserverCycle : LifecycleObserver {
+    var TAG:String="ObserverCycle"
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreateEvent() {
         Log.i(TAG, "Observer ON_CREATE")
@@ -13,7 +13,7 @@ class activity_cycleObserver : LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onStartEvent() {
         Log.i(TAG, "Observer ON_START")
-        //activity_cycle.onStart()
+        //CycleActivity.onStart()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)

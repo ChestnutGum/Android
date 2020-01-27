@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //on lance la page de login
-        val logActivity = Intent(this@MainActivity, activity_login::class.java)
+        val logActivity = Intent(this@MainActivity, LoginActivity::class.java)
         startActivity(logActivity)
     }
 }

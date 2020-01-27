@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.widget.*
 
 
-class activity_login : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     private lateinit var my_Id:EditText
     private lateinit var myButtonValidate:Button
     private lateinit var myPass:EditText
@@ -30,16 +30,16 @@ class activity_login : AppCompatActivity() {
             if (my_Id.getText().toString().equals("admin") && myPass.getText().toString().equals("admin"))
             {
                 //password correct
-                Toast.makeText(this@activity_login, "Bienvenue !", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@LoginActivity, "Bienvenue !", Toast.LENGTH_LONG).show()
                 //passage à la page home
-                val homeActivity = Intent(this@activity_login, activity_home::class.java)
+                val homeActivity = Intent(this@LoginActivity, HomeActivity::class.java)
                 startActivity(homeActivity)
             }
             else
             {
                 //password incorrect
                 //Apparition d'un toast qui indique de réessayer
-                Toast.makeText(this@activity_login, "Try Again...", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@LoginActivity, "Try Again...", Toast.LENGTH_LONG).show()
             }
         }
     }

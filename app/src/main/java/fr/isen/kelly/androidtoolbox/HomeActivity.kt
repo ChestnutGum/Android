@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 
-class activity_home : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private lateinit var myButtonCycle:ImageButton
 
@@ -17,8 +17,8 @@ class activity_home : AppCompatActivity() {
 
         //action qui s'exécute quand on clique sur le bouton "cycle de vie"
         myButtonCycle.setOnClickListener {
-            //redirection vers l'activité activity_cycle
-            val CycleActivity = Intent(this@activity_home, activity_cycle::class.java)
+            //redirection vers l'activité CycleActivity
+            val CycleActivity = Intent(this@HomeActivity, CycleActivity::class.java)
             startActivity(CycleActivity)
         }
     }

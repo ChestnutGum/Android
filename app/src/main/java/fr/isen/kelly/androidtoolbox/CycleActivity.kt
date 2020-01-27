@@ -6,9 +6,9 @@ import android.widget.TextView
 import android.widget.Toast
 import android.widget.Button
 
-class activity_cycle : AppCompatActivity(){
+class CycleActivity : AppCompatActivity(){
 
-    var TAG:String="activity_cycle"
+    var TAG:String="CycleActivity"
     lateinit var startTextView:TextView
     lateinit var button1:Button
 
@@ -35,7 +35,7 @@ class activity_cycle : AppCompatActivity(){
         }
 
         //Log.i(TAG, "Owner onCreate")
-        lifecycle.addObserver(activity_cycleObserver())
+        lifecycle.addObserver(ObserverCycle())
         //affichage à l'écran dans un TextView
         //modification du TextView
         startTextView= findViewById(R.id.log_view)
@@ -78,6 +78,6 @@ class activity_cycle : AppCompatActivity(){
         //logs
         Log.i(TAG, "Owner onDestroy")
         //un toast quand l'activité est complètement détruite
-        Toast.makeText(this@activity_cycle, "Destroy !", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@CycleActivity, "Destroy !", Toast.LENGTH_LONG).show()
     }
 }

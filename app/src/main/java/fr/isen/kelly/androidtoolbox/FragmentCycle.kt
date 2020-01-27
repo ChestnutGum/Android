@@ -43,7 +43,7 @@ class FragmentCycle : Fragment() {
             // Montrer la confirmation du clic
             Toast.makeText(view.context, "TextView clicked.", Toast.LENGTH_SHORT).show()
         }
-        //lifecycle.addObserver(activity_cycleObserver())
+        //lifecycle.addObserver(ObserverCycle())
         startTextView_frag = view.findViewById<TextView>(R.id.texte)
         startTextView_frag.text = "Etat actuel du fragment : onCreateView"
         // Return the fragment view/layout
