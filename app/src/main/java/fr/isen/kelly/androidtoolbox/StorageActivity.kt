@@ -13,17 +13,17 @@ import java.util.*
 class StorageActivity : AppCompatActivity() {
     //déclaration des éléments
     //bouton de sauvegarde
-    lateinit var mySave: Button// = findViewById(R.id.save)
+    lateinit var mySave: Button
     //bouton de lecture des informations
-    lateinit var myShow: Button// = findViewById(R.id.show)
+    lateinit var myShow: Button
     //nom de famille
-    lateinit var myLastName: EditText// = findViewById(R.id.lastName)
+    lateinit var myLastName: EditText
     //prénom
-    lateinit var myFirstName: EditText// = findViewById(R.id.firstName)
+    lateinit var myFirstName: EditText
     //date de naissance
-    lateinit var myDate: TextView //= findViewById(R.id.date)
+    lateinit var myDate: TextView
     //titre
-    lateinit var myDateTitle: TextView //= findViewById(R.id.dateTitle)
+    lateinit var myDateTitle: TextView
     lateinit var myAge:String
 
     //fichier json
@@ -45,7 +45,7 @@ class StorageActivity : AppCompatActivity() {
         //instance de calendrier
         val cal: Calendar = Calendar.getInstance()
         val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-            var mois:Int=month+1
+            val mois:Int=month+1
             val newDate = "$year/$mois/$dayOfMonth"
             myDate.text=newDate
             myAge=getAge(year,month,dayOfMonth)
@@ -82,16 +82,16 @@ class StorageActivity : AppCompatActivity() {
         ).show()
 
     }
-
+    //beug quand on fait une sauvegarde vide
     //fonction pour sauvegarder les données dans le fichier json
     private fun saveDataToFile(lastName: String, firstname: String, date: String, age: String) {
-        if (firstname.isNotEmpty() && lastName.isNotEmpty()) {// && date != getString(R.string.storage_date_value)){
+        if (firstname.isNotEmpty() && lastName.isNotEmpty() && date != getString(R.string.date_non_select)){
             val data = "{'lastName':'$lastName','firstName':'$firstname','date':'$date','age':'$age'}"
             val dataJson: JSONObject = JSONObject().put("lastName", lastName)
             File(cacheDir.absolutePath + JSON_FILE).writeText(data)
             Toast.makeText(
                 this@StorageActivity,
-                "Sauvegarde des informations de l'utilisateur",
+                getString(R.string.info_save),
                 Toast.LENGTH_LONG
             ).show()
         }

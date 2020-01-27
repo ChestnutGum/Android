@@ -22,6 +22,31 @@
     <string name="fragment_onStart">"Fragment onStart"</string>
     <string name="fragment_onStop">"Fragment onStop"</string>
     <string name="string_tag2">"activity_fragment"</string>
+    <string name="ident_texte">"Identifiant"</string>
+    <string name="title_co_texte">"CONNEXION"</string>
+    <string name="texte_valider">"Valider"</string>
+    <string name="texte_mdp">"Mot de passe"</string>
+    <string name="texte_date">"Date:"</string>
+    <string name="texte_nom">"Nom"</string>
+    <string name="texte_prenom">"Prénom"</string>
+    <string name="date_non_select">"../../.."</string>
+    <string name="save_texte">"Sauvegarde"</string>
+    <string name="read_texte">"Lecture"</string>
+    <string name="info_texte">"Informations"</string>
+    <string name="info_save">"Sauvegarde des informations de l'utilisateur"</string>
+    <string name="texte_fragment_button">"Charger un fragment de texte"</string>
+    <string name="texte_test">"Test"</string>
+    <string name="desc_disconnect">"Bouton de déconnexion"</string>
+    <string name="desc_bouton_cycle">"Bouton de cycle de vie"</string>
+    <string name="desc_bouton_web">"Bouton de WebServices"</string>
+    <string name="desc_bouton_permission">"Bouton de permissions"</string>
+    <string name="texte_web">"Webservices"</string>
+    <string name="texte_cycle">"Cycle de vie"</string>
+    <string name="desc_logo">"Image Isen logo"</string>
+    <string name="bonjour">"Bonjour"</string>
+    <string name="texte_permissions">"Permissions"</string>
+    <string name="exemple_fragment"> "Exemple de Fragment de texte : cliquez ici !"</string>
+    <string name="texte_fragment">"Mon fragment"</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
