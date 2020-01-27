@@ -25,7 +25,7 @@ class CycleActivity : AppCompatActivity(){
             // Obtenir l'instance du gestionnaire de fragment
             val manager = supportFragmentManager
             // Commencer la transition du fragment à l'aide du gestionnaire de fragments
-            val transaction = manager.beginTransaction()
+            val transaction = manager.beginTransaction()//add(R.id.fragment,activitéFragment)
 
             // Remplacer le fragment dans le conteneur
             transaction.replace(R.id.myFragment,textFragment)

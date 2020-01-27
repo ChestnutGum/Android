@@ -23,7 +23,13 @@ class LoginActivity : AppCompatActivity() {
         //puis l'activer lorsqu'il a saisi ses infos
         //on récupère le mot de passe
         myPass=findViewById(R.id.myPass)
-
+//saveUserCredential(identifiant:String,mdp:String)
+        //.apply et pas commit()
+        //val savedIdentifiant=
+        //supprimer la sauvegarde
+        //editor.clear
+        //intent.addFlags(intent.
+        //gotoHome(savedIdentifiant,true) redirection/connexion automatique
         //action qui s'exécute quand on clique sur le bouton "valider"
         myButtonValidate.setOnClickListener {
             //afficher un message
