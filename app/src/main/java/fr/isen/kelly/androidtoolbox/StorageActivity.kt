@@ -24,6 +24,7 @@ class StorageActivity : AppCompatActivity() {
     lateinit var myDate: TextView //= findViewById(R.id.date)
     //titre
     lateinit var myDateTitle: TextView //= findViewById(R.id.dateTitle)
+    lateinit var myAge:String
 
     //fichier json
     private val JSON_FILE = "data_user_toolbox.json"
@@ -47,20 +48,15 @@ class StorageActivity : AppCompatActivity() {
             var mois:Int=month+1
             val newDate = "$year/$mois/$dayOfMonth"
             myDate.text=newDate
-            /*myDate.setText(
-                StringBuilder().append(cal.get(Calendar.YEAR)).append("/").append(
-                    cal.get(
-                        Calendar.MONTH
-                    ) + 1
-                ).append("/").append(cal.get(Calendar.DAY_OF_MONTH))
-            )*/
+            myAge=getAge(year,month,dayOfMonth)
         }
         //action du bouton de sauvegarde
         mySave.setOnClickListener {
             saveDataToFile(
                 myLastName.text.toString(),
                 myFirstName.text.toString(),
-                myDate.text.toString()
+                myDate.text.toString(),
+                myAge
             )
         }
         //action du bouton de lecture
@@ -82,14 +78,15 @@ class StorageActivity : AppCompatActivity() {
             cal.get(Calendar.YEAR),
             cal.get(Calendar.MONTH),
             cal.get(Calendar.DAY_OF_MONTH)
+
         ).show()
 
     }
 
     //fonction pour sauvegarder les données dans le fichier json
-    private fun saveDataToFile(lastName: String, firstname: String, date: String) {
+    private fun saveDataToFile(lastName: String, firstname: String, date: String, age: String) {
         if (firstname.isNotEmpty() && lastName.isNotEmpty()) {// && date != getString(R.string.storage_date_value)){
-            val data = "{'lastName':'$lastName','firstName':'$firstname','date':'$date'}"
+            val data = "{'lastName':'$lastName','firstName':'$firstname','date':'$date','age':'$age'}"
             val dataJson: JSONObject = JSONObject().put("lastName", lastName)
             File(cacheDir.absolutePath + JSON_FILE).writeText(data)
             Toast.makeText(
@@ -109,9 +106,10 @@ class StorageActivity : AppCompatActivity() {
             val strDate: String = jsonObject.optString("date")
             val strLastName: String = jsonObject.optString("lastName")
             val strFirstName: String = jsonObject.optString("firstName")
+            val strAge: String = jsonObject.optString("age")
             //affichage d'une fenetre de dialogue
             AlertDialog.Builder(this@StorageActivity).setTitle("Lecture du fichier")
-                .setMessage("Nom:$strLastName\n Prenom:$strFirstName\n Date:$strDate\nAge:0")
+                .setMessage("Nom:$strLastName\n Prenom:$strFirstName\n Date:$strDate\nAge:$strAge")
                 .create().show()
 
         } else {
@@ -119,15 +117,18 @@ class StorageActivity : AppCompatActivity() {
                 .show()
         }
     }
-
-    fun getAge(year:Int,month:Int,day:Int){
-        val cal: Calendar = Calendar.getInstance()
-        var yearNow:Int=cal.get(Calendar.YEAR)
-        var monthNow:Int=cal.get(Calendar.MONTH)
-        var dayNow:Int=cal.get(Calendar.DAY_OF_MONTH)
-        
-
-
+    //fonction qui calcule l'age de l'utilisateur
+    private fun getAge(year:Int,month:Int,day:Int):String{
+        val today = Calendar.getInstance()
+        val dob = Calendar.getInstance()
+        dob.set(year,month,day)
+        //date du jour - date de naissance
+        var age : Int = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR)
+        if(today.get(Calendar.DAY_OF_YEAR)< dob.get(Calendar.DAY_OF_YEAR)){
+            age--
+        }
+        val ageS=age.toString()
+        return ageS
     }
 
     companion object {
