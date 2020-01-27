@@ -15,9 +15,9 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         //bouton de cycle de vie
-        myButtonCycle=findViewById(R.id.button_cycle)
+        myButtonCycle=findViewById(R.id.buttonCycle)
         //bouton de sauvegarde
-        myButtonSave=findViewById(R.id.button_save)
+        myButtonSave=findViewById(R.id.buttonSave)
         //bouton de déconnexion
         myButtonDisconnect=findViewById(R.id.disconnectButton)
 
@@ -38,7 +38,7 @@ class HomeActivity : AppCompatActivity() {
         myButtonDisconnect.setOnClickListener {
             //redirection vers la page de log
             val sharedPreferences=getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
-            var editor=sharedPreferences.edit()
+            val editor=sharedPreferences.edit()
             editor.clear()
             editor.apply()
             startActivity(Intent(this@HomeActivity, LoginActivity::class.java))

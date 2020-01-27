@@ -38,7 +38,7 @@ class CycleActivity : AppCompatActivity(){
         lifecycle.addObserver(ObserverCycle())
         //affichage à l'écran dans un TextView
         //modification du TextView
-        startTextView= findViewById(R.id.log_view)
+        startTextView= findViewById(R.id.logView)
         startTextView.text="Etat actuel de l'activité : Owner onCreate"
     }
 
@@ -48,7 +48,7 @@ class CycleActivity : AppCompatActivity(){
         //Log.i(TAG, "Owner onStart")
         //affichage à l'écran dans un TextView
         //modification du TextView
-        startTextView= findViewById(R.id.log_view)
+        startTextView= findViewById(R.id.logView)
         startTextView.text="Etat actuel de l'activité : Owner onStart"
     }
     //état onPause
@@ -63,7 +63,7 @@ class CycleActivity : AppCompatActivity(){
         //Log.i(TAG, "Owner onResume")
         //affichage à l'écran dans un TextView
         //modification du TextView
-        startTextView= findViewById(R.id.log_view)
+        startTextView= findViewById(R.id.logView)
         startTextView.text="Etat actuel de l'activité : Owner onResume"
     }
     //état onStop

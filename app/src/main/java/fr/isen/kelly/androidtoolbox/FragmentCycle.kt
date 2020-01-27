@@ -18,13 +18,13 @@ import androidx.lifecycle.OnLifecycleEvent
  * A simple [Fragment] subclass.
  */
 class FragmentCycle : Fragment() {
-    var TAG2: String = "activity_fragment"
-    lateinit var startTextView_frag: TextView
+    var tag2: String = "activity_fragment"
+    lateinit var startTextViewFrag: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i(TAG2, "Fragment onCreate")
+        Log.i(tag2, getString(R.string.fragment_onCreate))
     }
 
     override fun onCreateView(
@@ -41,75 +41,58 @@ class FragmentCycle : Fragment() {
             // Change la couleur du texte
             tv.setTextColor(Color.RED)
             // Montrer la confirmation du clic
-            Toast.makeText(view.context, "TextView clicked.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(view.context, getString(R.string.message_text_fragment), Toast.LENGTH_SHORT).show()
         }
-        //lifecycle.addObserver(ObserverCycle())
-        startTextView_frag = view.findViewById<TextView>(R.id.texte)
-        startTextView_frag.text = "Etat actuel du fragment : onCreateView"
+        startTextViewFrag = view.findViewById<TextView>(R.id.texte)
+        startTextViewFrag.text = getString(R.string.state_fragment_onCreate)
         // Return the fragment view/layout
         return view
     }
 
-    //état onPause du fragment
+    //Etat onPause du fragment
     override fun onPause() {
         super.onPause()
-        Log.i(TAG2, "Fragment onPause")
-        //startTextView_frag = view?.findViewById<TextView>(R.id.texte) as TextView
-        //startTextView_frag.text = "Etat actuel du fragment : onPause"
+        Log.i(tag2, getString(R.string.fragment_onPause))
     }
 
-    //état onAttach du fragment
+    //Etat onAttach du fragment
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        Log.i(TAG2, "Fragment onAttach")
-        //startTextView_frag=view?.findViewById<TextView>(R.id.texte) as TextView
-        //startTextView_frag.text="Etat actuel du fragment : onAttach"
+        Log.i(tag2, getString(R.string.fragment_onAttach))
     }
 
-    //état onDestroy du fragment
+    //Etat onDestroy du fragment
     override fun onDestroy() {
         super.onDestroy()
-        Log.i(TAG2, "Fragment onDestroy")
-        //startTextView_frag=view?.findViewById<TextView>(R.id.texte) as TextView
-        //startTextView_frag.text="Etat actuel du fragment : onDestroy"
+        Log.i(tag2, getString(R.string.fragment_onDestroy))
     }
 
-    //état onDetach du fragment
+    //Etat onDetach du fragment
     override fun onDetach() {
         super.onDetach()
-        Log.i(TAG2, "Fragment onDetach")
-        //startTextView_frag = view?.findViewById<TextView>(R.id.texte) as TextView
-        //startTextView_frag.text = "Etat actuel du fragment : onDetach"
+        Log.i(tag2, getString(R.string.fragment_onDetach))
     }
-    //état onResume du fragment
+    //Etat onResume du fragment
     override fun onResume() {
         super.onResume()
-        Log.i(TAG2, "Fragment onResume")
-        startTextView_frag = view?.findViewById<TextView>(R.id.texte) as TextView
-        startTextView_frag.text = "Etat actuel du fragment : onResume"
+        Log.i(tag2, getString(R.string.fragment_onResume))
+        startTextViewFrag = view?.findViewById<TextView>(R.id.texte) as TextView
+        startTextViewFrag.text = getString(R.string.state_fragment_onResume)
     }
 
     //état onStart du fragment
     override fun onStart() {
         super.onStart()
-        Log.i(TAG2, "Fragment onStart")
-        startTextView_frag = view?.findViewById<TextView>(R.id.texte) as TextView
-        startTextView_frag.text = "Etat actuel du fragment : onStart"
+        Log.i(tag2, getString(R.string.fragment_onStart))
+        startTextViewFrag = view?.findViewById<TextView>(R.id.texte) as TextView
+        startTextViewFrag.text = getString(R.string.state_fragment_onStart)
     }
 
     //état onStop du fragment
     override fun onStop() {
         super.onStop()
-        Log.i(TAG2, "Fragment onStop")
-        //startTextView_frag = view?.findViewById<TextView>(R.id.texte) as TextView
-        //startTextView_frag.text = "Etat actuel du fragment : onStop"
+        Log.i(tag2, getString(R.string.fragment_onStop))
     }
-    //Affichage d'un message dans un fragment
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val view: TextView = getView()?.findViewById(R.id.texte) as TextView
-        view.text = "Je suis un fragment"
-    }*/
 }
 
 

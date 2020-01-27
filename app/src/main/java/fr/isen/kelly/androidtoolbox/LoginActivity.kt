@@ -18,10 +18,8 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        //.apply et pas commit()
-        //supprimer la sauvegarde
-        //editor.clear
+        setContentView(R.layout.activity_login)
+
         val sharedPreferences=getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
         var editor=sharedPreferences.edit()
 
@@ -32,22 +30,24 @@ class LoginActivity : AppCompatActivity() {
             startActivity(homeActivity)
         }
 
+        //question : faut-il mettre un apply dans ce cas ?
+
         //bouton valider
-        myButtonValidate=findViewById(R.id.button_validate) as Button
-        myId=findViewById(R.id.my_Id)
+        myButtonValidate=findViewById<Button>(R.id.buttonVal) as Button
+        myId=findViewById(R.id.myIdent)
         myPasswd=findViewById(R.id.myPass)
 
 
         //action qui s'exécute quand on clique sur le bouton "valider"
         myButtonValidate.setOnClickListener {
             val myIdentifiant=myId.text.toString()
-            val myPasswd=myPasswd.text.toString()
+            val myPassword=myPasswd.text.toString()
             //afficher un message
-            if (myIdentifiant == "admin" && myPasswd == "123") {
+            if (myIdentifiant == "admin" && myPassword == "123") {
                 //password correct
-                Toast.makeText(this@LoginActivity, "Bienvenue !", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@LoginActivity, getString(R.string.welcome), Toast.LENGTH_LONG).show()
                 //fonction de sauvegarde
-                saveInformations(myIdentifiant, myPasswd)
+                saveInformations(myIdentifiant, myPassword)
                 //passage à la page home
                 //val homeActivity = Intent(this@LoginActivity, HomeActivity::class.java)
                 startActivity(homeActivity)
@@ -56,13 +56,13 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 //password incorrect
                 //Apparition d'un toast qui indique de réessayer
-                Toast.makeText(this@LoginActivity, "Try Again...", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@LoginActivity, getString(R.string.login_failed), Toast.LENGTH_LONG).show()
             }
         }
     }
     private fun saveInformations(identifiant:String,mdp:String){
         val sharedPreferences=getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
-        var editor=sharedPreferences.edit()
+        val editor=sharedPreferences.edit()
         //sauvegarde des données
         editor.putString(MY_KEY_ID,identifiant)
         editor.putString(MY_KEY_PASS,mdp)
