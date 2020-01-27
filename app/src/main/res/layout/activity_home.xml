@@ -97,9 +97,9 @@
         android:layout_marginEnd="242dp"
         android:layout_marginBottom="248dp"
         android:background="#D32F2F"
+        android:contentDescription="Bouton de permissions"
         android:scaleType="fitXY"
         android:tint="#FFFFFF"
-        android:contentDescription="Bouton de permissions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_web"
@@ -118,9 +118,9 @@
         android:layout_marginEnd="89dp"
         android:layout_marginBottom="246dp"
         android:background="#D32F2F"
+        android:contentDescription="Bouton de WebServices"
         android:scaleType="fitXY"
         android:tint="#FFFFFF"
-        android:contentDescription="Bouton de WebServices"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -139,9 +139,9 @@
         android:layout_marginEnd="242dp"
         android:layout_marginBottom="398dp"
         android:background="#D32F2F"
+        android:contentDescription="Bouton de cycle de vie"
         android:scaleType="fitXY"
         android:tint="#FFFFFF"
-        android:contentDescription="Bouton de cycle de vie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_save"
@@ -184,5 +184,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_save"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/disconnectButton"
+        android:layout_width="76dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="617dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/isen_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_lock_power_off" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

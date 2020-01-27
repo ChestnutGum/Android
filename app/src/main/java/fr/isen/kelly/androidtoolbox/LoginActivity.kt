@@ -9,9 +9,9 @@ import android.widget.*
 
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var my_Id:EditText
+    private lateinit var myId:EditText
     private lateinit var myButtonValidate:Button
-    private lateinit var myPass:EditText
+    private lateinit var myPasswd:EditText
     val MY_KEY_PASS="Password"
     val MY_KEY_ID="Identifiant"
 
@@ -34,12 +34,14 @@ class LoginActivity : AppCompatActivity() {
 
         //bouton valider
         myButtonValidate=findViewById(R.id.button_validate) as Button
+        myId=findViewById(R.id.my_Id)
+        myPasswd=findViewById(R.id.myPass)
 
 
         //action qui s'exécute quand on clique sur le bouton "valider"
         myButtonValidate.setOnClickListener {
-            val myIdentifiant=my_Id.text.toString()
-            val myPasswd=myPass.text.toString()
+            val myIdentifiant=myId.text.toString()
+            val myPasswd=myPasswd.text.toString()
             //afficher un message
             if (myIdentifiant == "admin" && myPasswd == "123") {
                 //password correct
