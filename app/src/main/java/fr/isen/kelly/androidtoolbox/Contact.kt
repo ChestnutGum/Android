@@ -1,8 +1,5 @@
 package fr.isen.kelly.androidtoolbox
 
-import android.text.BoringLayout
-import kotlin.properties.Delegates
-
 class Contact(val name: String, val isOnline:Boolean) {
 
 
