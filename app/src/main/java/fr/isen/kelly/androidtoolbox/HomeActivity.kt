@@ -9,6 +9,7 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var myButtonCycle:ImageButton
     private lateinit var myButtonSave:ImageButton
+    private lateinit var myButtonPermission:ImageButton
     private lateinit var myButtonDisconnect:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +22,7 @@ class HomeActivity : AppCompatActivity() {
         //bouton de déconnexion
         myButtonDisconnect=findViewById(R.id.disconnectButton)
 
+        myButtonPermission=findViewById(R.id.buttonPermission)
         //action qui s'exécute quand on clique sur le bouton "cycle de vie"
         myButtonCycle.setOnClickListener {
             //redirection vers l'activité CycleActivity
@@ -44,6 +46,12 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
 
         }
+        myButtonPermission.setOnClickListener {
+            //redirection vers l'activité StorageActivity
+            val InfosActivity = Intent(this@HomeActivity, InformationsActivity::class.java)
+            startActivity(InfosActivity)
+        }
+
 
     }
 }

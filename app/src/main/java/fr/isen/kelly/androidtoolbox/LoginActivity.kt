@@ -21,7 +21,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         val sharedPreferences=getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
-        var editor=sharedPreferences.edit()
 
         val homeActivity = Intent(this@LoginActivity, HomeActivity::class.java)
         //si les informations ont déjà été sauvegardées
@@ -30,7 +29,6 @@ class LoginActivity : AppCompatActivity() {
             startActivity(homeActivity)
         }
 
-        //question : faut-il mettre un apply dans ce cas ?
 
         //bouton valider
         myButtonValidate=findViewById<Button>(R.id.buttonVal) as Button
