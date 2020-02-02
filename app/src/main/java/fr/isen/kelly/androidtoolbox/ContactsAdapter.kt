@@ -10,13 +10,12 @@ class ContactsAdapter(val contacts: List<Contact>) : RecyclerView.Adapter<Contac
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val contactView =
-            LayoutInflater.from(parent.getContext()).inflate(R.layout.item_contact, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_contact, parent, false)
         return ViewHolder(contactView)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView = itemView.contactName
-        val myMessageButton = itemView.messageButton
     }
 
 
@@ -24,9 +23,6 @@ class ContactsAdapter(val contacts: List<Contact>) : RecyclerView.Adapter<Contac
         val contact = contacts.get(position)
         val textView = viewHolder.nameTextView
         textView.text = contact.name
-        val button = viewHolder.myMessageButton
-        button.text = if (contact.isOnline) "Message" else "Offline"
-
     }
 
     override fun getItemCount(): Int = contacts.size

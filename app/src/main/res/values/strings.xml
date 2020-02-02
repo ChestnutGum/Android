@@ -47,6 +47,22 @@
     <string name="texte_permissions">"Permissions"</string>
     <string name="exemple_fragment"> "Exemple de Fragment de texte : cliquez ici !"</string>
     <string name="texte_fragment">"Mon fragment"</string>
+    <string name="permission_localisation_refused">"Permission de localisation refusée par l'utilisateur"</string>
+    <string name="permission_contacts_refused">"Permission d'accéder aux contacts refusée par l'utilisateur"</string>
+    <string name="permission_camera_refused">"Permission d'accéder à la caméra refusée par l'utilisateur"</string>
+    <string name="image_saved">"Image Saved!"</string>
+    <string name="gallery">"Selectionner depuis la galerie"</string>
+    <string name="take_photo">"Prendre une photo"</string>
+    <string name="choose_action">"Choisir une action :"</string>
+    <string name="image">"Image"</string>
+    <string name="yes">"Yes"</string>
+    <string name="no">"No"</string>
+    <string name="message_gps">"Your GPS seems to be disabled, do you want to enable it?"</string>
+    <string name="text_latitude"> "Latitude : "</string>
+    <string name="text_longitude">"Longitude : "</string>
+    <string name="titre_infos_android">"Accès aux informations Android"</string>
+    <string name="text_camera">"camera"</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -26,7 +26,7 @@
         android:layout_marginStart="172dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="181dp"
-        android:text="Accès aux informations Android"
+        android:text="@string/titre_infos_android"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/myList"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +45,7 @@
         android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
         android:scaleType="centerInside"
+        android:contentDescription="@string/text_camera"
         app:layout_constraintBottom_toTopOf="@+id/myList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,25 +57,29 @@
         android:id="@+id/latitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="193dp"
+        android:layout_marginStart="264dp"
+        android:layout_marginEnd="150dp"
         app:layout_constraintBottom_toTopOf="@+id/myList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toEndOf="@+id/buttonPicture"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleInfos"
-        app:layout_constraintVertical_bias="0.369" />
+        app:layout_constraintVertical_bias="0.32" />
 
     <TextView
         android:id="@+id/longitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="193dp"
+        android:layout_marginStart="279dp"
+        android:layout_marginEnd="150dp"
         app:layout_constraintBottom_toTopOf="@+id/myList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/buttonPicture"
-        app:layout_constraintTop_toBottomOf="@+id/titleInfos"
-        app:layout_constraintVertical_bias="0.561" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latitude"
+        app:layout_constraintVertical_bias="0.176" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
