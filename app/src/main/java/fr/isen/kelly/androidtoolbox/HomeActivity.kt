@@ -11,10 +11,13 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var myButtonSave:ImageButton
     private lateinit var myButtonPermission:ImageButton
     private lateinit var myButtonDisconnect:ImageButton
+    private lateinit var myButtonWeb:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        //bouton de webServices
+        myButtonWeb=findViewById(R.id.buttonWeb)
         //bouton de cycle de vie
         myButtonCycle=findViewById(R.id.buttonCycle)
         //bouton de sauvegarde
@@ -50,6 +53,11 @@ class HomeActivity : AppCompatActivity() {
             //redirection vers l'activité StorageActivity
             val InfosActivity = Intent(this@HomeActivity, InformationsActivity::class.java)
             startActivity(InfosActivity)
+        }
+        myButtonWeb.setOnClickListener {
+            //redirection vers l'activité StorageActivity
+            val WebServicesActivity = Intent(this@HomeActivity, WebActivity::class.java)
+            startActivity(WebServicesActivity)
         }
 
 
