@@ -51,68 +51,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
-    <TextView
-        android:id="@+id/textLatitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="157dp"
-        android:layout_marginTop="148dp"
-        android:layout_marginEnd="196dp"
-        android:layout_marginBottom="564dp"
-        android:text="Latitude :"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textLongitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="166dp"
-        android:layout_marginTop="168dp"
-        android:layout_marginEnd="186dp"
-        android:layout_marginBottom="544dp"
-        android:text="Longitude :"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
-        app:layout_constraintStart_toEndOf="@+id/buttonPicture"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/latitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="218dp"
-        android:layout_marginTop="148dp"
-        android:layout_marginEnd="194dp"
-        android:layout_marginBottom="564dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="193dp"
+        app:layout_constraintBottom_toTopOf="@+id/myList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textLatitude"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonPicture"
+        app:layout_constraintTop_toBottomOf="@+id/titleInfos"
+        app:layout_constraintVertical_bias="0.369" />
 
     <TextView
         android:id="@+id/longitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="234dp"
-        android:layout_marginTop="168dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginBottom="544dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="193dp"
+        app:layout_constraintBottom_toTopOf="@+id/myList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/buttonPicture"
+        app:layout_constraintTop_toBottomOf="@+id/titleInfos"
+        app:layout_constraintVertical_bias="0.561" />
 
-    <!--android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
