@@ -1,6 +1,7 @@
 @file:Suppress("DEPRECATION")
 
 package fr.isen.kelly.androidtoolbox
+
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -26,13 +27,13 @@ import android.view.View
 import com.google.android.gms.location.*
 
 
-class InformationsActivity : AppCompatActivity() {
+class InformationsActivity : AppCompatActivity() { //LocationListener
     lateinit var mLocationRequest: LocationRequest
     private lateinit var myButtonPicture: ImageButton
     lateinit var mLastLocation: Location
     lateinit var mLatitudeText: TextView
     lateinit var mLongitudeText: TextView
-
+    //var locationManager:LocationManager=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_informations)
@@ -42,35 +43,74 @@ class InformationsActivity : AppCompatActivity() {
         myButtonPicture.setOnClickListener {
             showPictureDialog()
         }
-        if ((ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) || (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED))
-        {
-            ActivityCompat.requestPermissions(this,arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_CONTACTS),2)
+        if ((ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.READ_CONTACTS
+            ) != PackageManager.PERMISSION_GRANTED) || (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED)
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf<String>(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.READ_CONTACTS
+                ),
+                2
+            )
+        } else {
+            displayContact()
+            startLocationUpdates()
         }
-        else {
-                displayContact()
-                startLocationUpdates()
-            }
-        }
+    }
 
+    //private fun showCurrentPosition(){
+    //locationManager=getSystemService(Context.LOCATION_SERVICE
+    //if(AcitivityCompat.checkSelfPermission(context:this,Manifest.permission.ACCESS_COARSE_LOCATION)==PackageManager.PERMISSION_GRANTED){
+
+    //locationManager.getRequestLocationUpdates(locationManager.NETWORK_PROVIDER,2000,1f,this)
+    //val location=locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+
+    //}
+    //}
+
+
+    //override onLocationChanged(location:Location?){
+    //mytextview.text=getString(R.String.permission_location,location?.latitude,location?.longitude) (dans le fichier string "Latitude: %1$f
+    //}
+
+    //override onStop(){
+    //super.onStop()
+    //locationManager.removeUpdates(this)
+    //}
+
+    //override fun onProviderDisabled(provider:String){
+    //val intent=Intent(Setting.ACTION_LOCATION_SOURCE_SETTINGS)
+    //startAcitivty(intent)
+    //Toast."gPS désativé"
+    //}
     //------------------------------------PARTIE LOCALISATION -------------------------------------
     private fun startLocationUpdates() {
 
         // Creation de la demande de localisation
         mLocationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         mLocationRequest.interval = 2000
-        mLocationRequest.fastestInterval=1000
+        mLocationRequest.fastestInterval = 1000
 
         // Creation de LocationSettingsRequest à l'aide d'une demande d'emplacement
         val builder = LocationSettingsRequest.Builder()
         builder.addLocationRequest(mLocationRequest)
-        val locationSettingsRequest= builder.build()
+        val locationSettingsRequest = builder.build()
 
         val settingsClient = LocationServices.getSettingsClient(this)
         settingsClient.checkLocationSettings(locationSettingsRequest)
 
         val mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-        mFusedLocationProviderClient.requestLocationUpdates(mLocationRequest, mLocationCallback,
-            Looper.myLooper())
+        mFusedLocationProviderClient.requestLocationUpdates(
+            mLocationRequest, mLocationCallback,
+            Looper.myLooper()
+        )
     }
 
 
@@ -90,7 +130,8 @@ class InformationsActivity : AppCompatActivity() {
         mLastLocation = location
         //mise à jour de l'interface utilisateur
         mLatitudeText.text = getString(R.string.text_latitude) + mLastLocation.latitude.toString()
-        mLongitudeText.text = getString(R.string.text_longitude) + mLastLocation.longitude.toString()
+        mLongitudeText.text =
+            getString(R.string.text_longitude) + mLastLocation.longitude.toString()
     }
 
 
@@ -140,6 +181,7 @@ class InformationsActivity : AppCompatActivity() {
         startActivityForResult(intent, 2000)
 
     }
+
     //boite de dialogue qui propose à l'utilisateur de choisir entre : importer l'image depuis
     //la galerie ou de l'appareil photo
     private fun showPictureDialog() {
@@ -159,23 +201,15 @@ class InformationsActivity : AppCompatActivity() {
         pictureDialog.show()
     }
 
-    /*private fun permissionCamera(){
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(this,arrayOf<String>(Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE),1)
-        }
-        else {
-            takePhotoFromCamera()
-        }
-    }*/
 
     //fonction pour sauvegarder la photo prise, dans la gallery
-    private fun saveToInternalStorage(bitmapImage:Bitmap) {
+    private fun saveToInternalStorage(bitmapImage: Bitmap) {
         MediaStore.Images.Media.insertImage(
             contentResolver,
             bitmapImage,
             getString(R.string.image),
-            getString(R.string.image))
+            getString(R.string.image)
+        )
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -193,7 +227,11 @@ class InformationsActivity : AppCompatActivity() {
             val thumbnail = data?.extras?.get("data") as Bitmap
             myButtonPicture.setImageBitmap(thumbnail)
             saveToInternalStorage(thumbnail)
-            Toast.makeText(this@InformationsActivity, getString(R.string.image_saved), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this@InformationsActivity,
+                getString(R.string.image_saved),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -207,27 +245,24 @@ class InformationsActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResult)
         //permissions pour l'accès aux contacts et la localisation en arrivant sur la page
-        if(requestCode==2){
-            if(grantResult.isNotEmpty() && grantResult[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == 2) {
+            if (grantResult.isNotEmpty() && grantResult[0] == PackageManager.PERMISSION_GRANTED) {
                 startLocationUpdates()
+            } else {
+                Toast.makeText(
+                    this,
+                    getString(R.string.permission_localisation_refused),
+                    Toast.LENGTH_LONG
+                ).show()
             }
-            else {
-                Toast.makeText(this, getString(R.string.permission_localisation_refused), Toast.LENGTH_LONG).show()
-            }
-            if(grantResult.isNotEmpty() && grantResult[1] == PackageManager.PERMISSION_GRANTED){
+            if (grantResult.isNotEmpty() && grantResult[1] == PackageManager.PERMISSION_GRANTED) {
                 displayContact()
-            }
-            else {
-                Toast.makeText(this, getString(R.string.permission_contacts_refused), Toast.LENGTH_LONG).show()
-            }
-        }
-        if(requestCode==1){
-            mLatitudeText.text=grantResult[0].toString()
-            if(grantResult.isNotEmpty() && grantResult[0] == PackageManager.PERMISSION_GRANTED){
-                takePhotoFromCamera()
-            }
-            else {
-                Toast.makeText(this, getString(R.string.permission_camera_refused), Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(
+                    this,
+                    getString(R.string.permission_contacts_refused),
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
     }

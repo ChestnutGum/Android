@@ -37,5 +37,15 @@ class NoteActivity : AppCompatActivity() {
 // } else if(items[item]=="Cancel"){
 // dialog.dismiss()
 
+/*
+rendu apk :
+signer un apk (fichier executable de notre app
+build -> generate signed bundle or apk
+apk -> next
+key store path -> create-new -> key store path -> repertoire du projet -> save as isen.jks ou .keystore -> password puis confirm -> alias = isen -> password clé puis confirm
+first and last name : isen
+release et v2(full apk signature)
+ */
+
 
 

@@ -40,7 +40,7 @@
         <activity android:name=".ObserverCycle" />
         <activity android:name=".CycleActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".HomeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
