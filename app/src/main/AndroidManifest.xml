@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".WebActivity"></activity>
+
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -33,7 +33,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
+        <activity android:name=".WebActivity"/>
         <activity android:name=".InformationsActivity" />
         <activity android:name=".NoteActivity" />
         <activity android:name=".StorageActivity" />

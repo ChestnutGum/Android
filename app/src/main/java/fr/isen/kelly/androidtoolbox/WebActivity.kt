@@ -3,64 +3,165 @@ package fr.isen.kelly.androidtoolbox
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.graphics.Bitmap
+import android.graphics.ColorSpace
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
-import android.widget.ListView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_informations.*
 import kotlinx.android.synthetic.main.activity_web.*
+import kotlinx.android.synthetic.main.item_user.*
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.OkHttpClient
+import okhttp3.*
 import org.json.JSONObject
-import java.io.BufferedInputStream
-import java.io.BufferedReader
-import java.io.InputStream
-import java.io.InputStreamReader
 import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
 import org.json.JSONArray
-
+import org.json.JSONException
+import org.xml.sax.Parser
+import java.io.*
+import java.net.MalformedURLException
+import java.net.ProtocolException
+import java.util.logging.Level.parse
+import java.util.HashMap
 
 
 @Suppress("DEPRECATION")
 class WebActivity : AppCompatActivity() {
-    var urlData:String="https://randomuser.me"
+    val userNameList = arrayListOf<User>()
+    lateinit var response:String
+    val TAG:String="test"
+    var urlData:String="https://randomuser.me/api/"
     val startTime=System.currentTimeMillis()
     var listUsers = ArrayList<User>()
     lateinit var myTextView:TextView
+    val usersList=ArrayList<User>()
+    //val adapter = UsersAdapter(usersList)
+    lateinit var recyclerView:RecyclerView
+    lateinit var progressBar:ProgressBar
+    lateinit var adapter:UsersAdapter
+    //var photoUser:ImageView=findViewById(R.id.imageTest)
     //var recyclerView:RecyclerView=findViewById(R.id.listContactApi)
 
+    private var jsonURL = "https://randomuser.me/api/"
+    lateinit var gson: Gson
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web)
         myTextView=findViewById(R.id.textViewTest)
+
+        //val view = inflater.inflate(R.layout.fragment_list, container, false)
+        val gsonBuilder = GsonBuilder()
+        gsonBuilder.setDateFormat("M/d/yy hh:mm a")
+        gson = gsonBuilder.create()
+
         //getUsers()
+        displayUser()
 
-        listContactApi.setHasFixedSize(true)
-        listContactApi.layoutManager = LinearLayoutManager(this)
-
-        listContactApi.adapter = UsersAdapter(loadUrlData())
-        val itemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-        listContactApi.addItemDecoration(itemDecoration)
-        //var usersList:ArrayList<User>
     }
 
+
+        /*listContactApi.setHasFixedSize(true)
+        listContactApi.layoutManager = LinearLayoutManager(this)
+        listContactApi.adapter = UsersAdapter(loadUrlData())
+        val itemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        listContactApi.addItemDecoration(itemDecoration)*/
+
+
+
+    // function for network call
+    private fun getUsers():List<User> {
+
+        // Instantiate the RequestQueue.
+        val queue = Volley.newRequestQueue(this)
+
+        // Request a string response from the provided URL.
+        val stringReq = StringRequest(Request.Method.GET, urlData,
+            Response.Listener<String> { response ->
+
+                var strResp = response
+                val jsonObj: JSONObject = JSONObject(strResp)
+                val jsonArray: JSONArray = jsonObj.getJSONArray("results")
+                var strUser: String = ""
+                var myName: String = ""
+                var myAddress=""
+                var strLoc=""
+                var strMail=""
+                var myLoc=""
+                var myPict=""
+                var strPict=""
+                //var picture:Bitmap
+
+                for (i in 0 until jsonArray.length()) {
+                    var jsonInner: JSONObject = jsonArray.getJSONObject(i)
+                    strUser = strUser + "\n" + jsonInner.get("name")
+                    strLoc= strLoc + jsonInner.get("location")
+                    strMail=strMail+jsonInner.get("email")
+                    strPict=strPict+jsonInner.get("picture")
+                    val myJsonName:JSONObject= JSONObject(strUser)
+                    myName += myJsonName.getString("first")+" "+myJsonName.getString("last")
+                    val myJsonLoc:JSONObject=JSONObject(strLoc)
+                    myLoc+=myJsonLoc.getString("street")
+                    val myJsonStreet:JSONObject=JSONObject(myLoc)
+                    myAddress += myJsonStreet.getString("number")+" "+myJsonStreet.getString("name")
+                    val myJsonPict:JSONObject= JSONObject(strPict)
+                    myPict+=myJsonPict.getString("medium")
+                    Picasso.get().load(myPict).resize (180, 180).centerCrop ().into (imageTest)
+
+
+
+
+
+                }
+                userNameList.add(User(myName,strMail,myAddress))
+                myTextView.text = "$myName \n $myAddress \n $strMail \n$myPict"
+            },
+            Response.ErrorListener { myTextView.text = "That didn't work!" })
+        queue.add(stringReq)
+        return userNameList
+    }
+
+    /*fun updateWithUrl(url: String) {
+        Picasso.with(itemView.context).load(url).into(myImageView)
+    }*/
+
+    private fun displayUser() {
+        listContactApi.layoutManager = LinearLayoutManager(this)
+        listContactApi.adapter = UsersAdapter(getUsers())
+        val itemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        listContactApi.addItemDecoration(itemDecoration)
+    }
+
+
+
+
     private fun loadUrlData():List<User> {
-        val stringRequest=StringRequest(Request.Method.GET,urlData,Response.Listener<String>{response ->
+        val stringRequest=StringRequest(Request.Method.GET,urlData,Response.Listener<String>{
             fun onResponse(response:String){
                 try {
                     var jsonObject:JSONObject= JSONObject(response)
-                    var array: JSONArray=jsonObject.getJSONArray("items")
+                    var array: JSONArray=jsonObject.getJSONArray("results")
                     for(i in 0 until array.length()){
                         var jo:JSONObject=array.getJSONObject(i)
                         var myUser:User=User(jo.getString("name"),jo.getString("email"),jo.getString("location"))
@@ -72,7 +173,7 @@ class WebActivity : AppCompatActivity() {
                     e.printStackTrace()
                 }
             }
-        },Response.ErrorListener(){
+        },Response.ErrorListener {
             fun onErrorResponse(error: VolleyError){
                 Toast.makeText(this,"Error"+error.toString(),Toast.LENGTH_SHORT).show()
             }
@@ -81,116 +182,4 @@ class WebActivity : AppCompatActivity() {
 
         return listUsers
     }
-
-
-
-
-    @SuppressLint("SetTextI18n")
-    private fun getUsers(){
-        val queue= Volley.newRequestQueue(this)
-        val url:String="https://randomuser.me"
-        val stringReq=StringRequest(Request.Method.GET,url,Response.Listener<String> { response ->
-            val strResp = response.toString()
-            val jsonObj= JSONObject(strResp)
-            val jsonArray:JSONArray=jsonObj.getJSONArray("items")
-            var strUser:String=""
-            for(i in 0 until jsonArray.length()){
-                val jsonInner:JSONObject=jsonArray.getJSONObject(i)
-                strUser=strUser+"\n"+jsonInner.get("login")
-            }
-            textViewTest.text="response : $strUser"
-        },
-            Response.ErrorListener { textViewTest.text="That didn't work !" })
-        queue.add(stringReq)
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    private fun sendRequest(url:URL): InputStream? {
-        try{
-            myList.layoutManager = LinearLayoutManager(this)
-
-            val itemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-            myList.addItemDecoration(itemDecoration)
-            val urlConnection=url.openConnection() as HttpURLConnection
-            urlConnection.connect()
-            if(urlConnection.responseCode===HttpURLConnection.HTTP_OK){
-                val inputStream=urlConnection.inputStream
-                //myList.adapter = UsersAdapter(readIt(inputStream))
-                val data=readIt(inputStream)
-            }
-        }
-        catch(e:Exception){
-            throw Exception("")
-        }
-        return null
-    }
-
-    private fun readIt(stream:InputStream):String{
-        val builder=StringBuilder()
-        val reader=BufferedReader(InputStreamReader(stream))
-        val line:String=reader.readLine()
-        while(line!=null){
-            builder.append(line+"\n")
-        }
-        return builder.toString()
-    }
-
-
-    private fun readStream(myVar:InputStream): ArrayList<User> {
-        val userNameList = arrayListOf<User>()
-        val sb=StringBuilder()
-        val r=BufferedReader(InputStreamReader(myVar),1000)
-        var line=r.readLine()
-        while(line!=null){
-            sb.append(line)
-            line=r.readLine()
-            userNameList.add(User(line,"null","null"))
-        }
-        myVar.close()
-        return userNameList//sb.toString()
-    }
-
-    /*private fun displayUserApi() {
-        myList.layoutManager = LinearLayoutManager(this)
-        myList.adapter = UsersAdapter(loadUsersApi())
-        val itemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-        myList.addItemDecoration(itemDecoration)
-    }*/
-/*
-    private fun loadUsersApi(): List<User> {
-        val userNameList = arrayListOf<User>()
-        val phoneCursor =
-            contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null)
-        phoneCursor?.let { cursor ->
-            while (cursor.moveToNext()) {
-                val name =
-                    cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
-                //je m'étais servi du isOnline (booleen) pour pouvoir envoyer un message quand le contact est en ligne par exemple
-                //j'ai gardé la mise en forme pour pouvoir éventuellement rajouter cette fonctionnalité à l'avenir
-                userNameList.add(User(name, ))
-            }
-            cursor.close()
-        }
-        return userNameList
-    }*/
-
-
-
-
-
-
 }

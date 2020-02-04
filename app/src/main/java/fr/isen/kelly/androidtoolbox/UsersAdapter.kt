@@ -3,7 +3,9 @@ package fr.isen.kelly.androidtoolbox
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_user.view.*
 
 class UsersAdapter(val users: List<User>) : RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
@@ -15,22 +17,28 @@ class UsersAdapter(val users: List<User>) : RecyclerView.Adapter<UsersAdapter.Vi
         }
 
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val nameTextView = itemView.userName
-            val mailTextView = itemView.userMail
-            val addressTextView = itemView.userAddr
+            var nameTextView = itemView.userName
+            var mailTextView = itemView.userMail
+            var addressTextView = itemView.userAddr
+            //var pictImageView= itemView.photoUser
+            /*private val myImageView: ImageView = itemView.findViewById<ImageView>(R.id.photoUser)
+
+
+            var imageUrl = imageUrls[position]
+            holder?.updateWithUrl(imageUrl)
+            */
         }
 
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-            val user = users.get(position)
-            //viewHolder.nameTextView.text(user.name)
-            val textName = viewHolder.nameTextView
-            val textMail=viewHolder.mailTextView
-            val textAddr=viewHolder.addressTextView
-            textName.text = user.name
-            textMail.text=user.email
-            textAddr.text=user.adresse
+            var user = users.get(position)
+            viewHolder.nameTextView.text = user.name
+            viewHolder.mailTextView.text = user.email
+            viewHolder.addressTextView.text = user.adresse
+
         }
+
+
 
         override fun getItemCount(): Int = users.size
 }

@@ -56,7 +56,7 @@ class FragmentCycle : Fragment() {
     }
 
     //Etat onAttach du fragment
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context:Context) {
         super.onAttach(context)
         Log.i(tag2, getString(R.string.fragment_onAttach))
     }
