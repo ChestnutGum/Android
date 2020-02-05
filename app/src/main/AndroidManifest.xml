@@ -33,15 +33,15 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-        <activity android:name=".WebActivity"/>
-        <activity android:name=".InformationsActivity" />
-        <activity android:name=".NoteActivity" />
-        <activity android:name=".StorageActivity" />
-        <activity android:name=".ObserverCycle" />
-        <activity android:name=".CycleActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".WebActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".InformationsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".NoteActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".StorageActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ObserverCycle" android:screenOrientation="portrait"/>
+        <activity android:name=".CycleActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".LoginActivity" android:screenOrientation="portrait"/>
         <activity android:name=".HomeActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
