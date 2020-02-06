@@ -6,60 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".WebActivity">
 
-    <!--TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="77dp"
-        android:layout_marginBottom="16dp"
-        android:text="Verified Users"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/downloadBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <GridView
-        android:id="@+id/myGridView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="127dp"
-        android:layout_marginBottom="433dp"
-        android:layout_weight="0.5"
-        android:numColumns="auto_fit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/downloadBtn" />
-
-    <Button
-        android:id="@+id/downloadBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="560dp"
-        android:background="@color/colorAccent"
-        android:text="Download"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" /-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listContactApi"
-        android:layout_width="405dp"
-        android:layout_height="595dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="@dimen/activity_web_width_recycler"
+        android:layout_height="@dimen/activity_web_height_recycler"
+        android:layout_marginStart="@dimen/activity_web_margin_start"
+        android:layout_marginTop="@dimen/activity_web_margin_top"
+        android:layout_marginEnd="@dimen/activity_web_margin_end"
+        android:layout_marginBottom="@dimen/activity_web_margin_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

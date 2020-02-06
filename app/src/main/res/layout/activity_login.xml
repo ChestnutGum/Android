@@ -12,69 +12,71 @@
         style="@android:style/Widget.DeviceDefault.Button.Inset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="488dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="195dp"
         android:background="#F44336"
         android:text="@string/texte_valider"
         android:textColor="#FDFCFC"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.714" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/myTitleCo"
-        android:layout_width="103dp"
-        android:layout_height="33dp"
+        android:layout_width="@dimen/activity_login_textView_title_width"
+        android:layout_height="@dimen/activity_login_textView_title_height"
         android:text="@string/title_co_texte"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="@dimen/activity_login_textView_title_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.346" />
+        app:layout_constraintVertical_bias="@dimen/activity_login_textView_title_constraintVertical_bias" />
 
     <EditText
         android:id="@+id/myIdent"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/activity_login_textView_ident_width"
+        android:layout_height="@dimen/activity_login_textView_ident_height"
         android:hint="@string/ident_texte"
         android:textColorHint="#808080"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="@dimen/activity_login_textView_ident_constraintHorizontal_bias"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.436" />
+        app:layout_constraintVertical_bias="@dimen/activity_login_textView_ident_constraintVertical_bias" />
 
     <EditText
         android:id="@+id/myPass"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/activity_login_textView_pass_width"
+        android:layout_height="@dimen/activity_login_textView_pass_height"
         android:hint="@string/texte_mdp"
         android:inputType="textPassword"
         android:textColorHint="#808080"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="@dimen/activity_login_textView_pass_constraintHorizontal_bias"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543" />
+        app:layout_constraintVertical_bias="@dimen/activity_login_textView_pass_constraintVertical_bias" />
 
     <ImageView
         android:id="@+id/isenView"
-        android:layout_width="177dp"
-        android:layout_height="173dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="@dimen/activity_login_imageView_width"
+        android:layout_height="@dimen/activity_login_imageView_height"
+        android:layout_marginEnd="@dimen/activity_login_imageView_margin"
+        android:layout_marginBottom="@dimen/activity_login_imageView_margin"
         android:background="@drawable/isen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.577"
+        app:layout_constraintHorizontal_bias="@dimen/activity_login_imageView_constraintHorizontal_bias"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029" />
+        app:layout_constraintVertical_bias="@dimen/activity_login_imageView_constraintVertical_bias" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

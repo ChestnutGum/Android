@@ -8,7 +8,7 @@ class NoteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_permission)}}
+        setContentView(R.layout.item_user)}}
         //fun CameraGalleryManager(){
 //val pictureDialog=AlertDialog.Builder(this)
 //pictureDialog.setTitle("Que faire:")

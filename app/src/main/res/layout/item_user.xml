@@ -11,56 +11,58 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    card_view:cardCornerRadius="5dp">
+    android:layout_marginTop="@dimen/item_user_margin_top"
+    android:layout_marginStart="@dimen/item_user_margin_start"
+    android:layout_marginEnd="@dimen/item_user_margin_end"
+    card_view:cardCornerRadius="@dimen/item_user_cardview_radius">
 
     <RelativeLayout
-        android:layout_width="358dp"
-        android:layout_height="91dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp">
+        android:layout_width="@dimen/item_user_R_width"
+        android:layout_height="@dimen/item_user_R_height"
+        android:layout_marginStart="@dimen/item_user_R_margin_start"
+        android:layout_marginTop="@dimen/item_user_R_margin_top"
+        android:layout_marginBottom="@dimen/item_user_R_margin_bottom">
 
         <TextView
             android:id="@+id/userName"
-            android:layout_width="230dp"
+            android:layout_width="@dimen/item_user_textView_width"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="@dimen/item_user_textView_margin_start"
+            android:layout_marginTop="@dimen/item_user_textView_margin_top"
             android:layout_toEndOf="@+id/photoUser"
-            android:textSize="18sp"
+            android:textSize="@dimen/item_user_textView_size_name"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/userMail"
-            android:layout_width="231dp"
+            android:layout_width="@dimen/item_user_textView_width"
             android:layout_height="wrap_content"
             android:layout_below="@+id/userName"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginStart="@dimen/item_user_textView_margin_start"
+            android:layout_marginTop="@dimen/item_user_textView_margin_top"
             android:layout_toEndOf="@+id/photoUser"
-            android:textSize="14sp" />
+            android:textSize="@dimen/item_user_textView_size_infos" />
 
         <TextView
             android:id="@+id/userAddr"
-            android:layout_width="231dp"
+            android:layout_width="@dimen/item_user_textView_width"
             android:layout_height="wrap_content"
             android:layout_below="@+id/userMail"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginStart="@dimen/item_user_textView_margin_start"
+            android:layout_marginTop="@dimen/item_user_textView_margin_top"
             android:layout_toEndOf="@+id/photoUser"
-            android:textSize="14sp" />
+            android:textSize="@dimen/item_user_textView_size_infos" />
 
         <ImageView
             android:id="@+id/photoUser"
-            android:layout_width="82dp"
-            android:layout_height="80dp"
+            android:layout_width="@dimen/item_user_imageView_width"
+            android:layout_height="@dimen/item_user_imageView_width"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="0dp" />
+            android:layout_marginStart="@dimen/item_user_imageView_all_margin"
+            android:layout_marginTop="@dimen/item_user_imageView_all_margin"
+            android:layout_marginBottom="@dimen/item_user_imageView_all_margin"
+            android:layout_marginEnd="@dimen/item_user_imageView_all_margin" />
 
 
     </RelativeLayout>
