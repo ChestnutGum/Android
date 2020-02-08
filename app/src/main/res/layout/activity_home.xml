@@ -16,12 +16,13 @@
         android:layout_marginEnd="@dimen/activity_home_textView_title_permission_margin_end"
         android:layout_marginBottom="@dimen/activity_home_textView_title_permission_margin_bottom"
         android:text="@string/texte_permissions"
+        android:textSize="@dimen/activity_home_textView_all_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="2.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="@dimen/activity_home_textView_title_perm_constraintHorizontal_bias"
-        app:layout_constraintVertical_bias="@dimen/activity_home_textView_title_perm_constraintVertical_bias"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textTitre"
@@ -65,12 +66,13 @@
         android:layout_marginEnd="@dimen/activity_home_textView_title_cycle_margin_end"
         android:layout_marginBottom="@dimen/activity_home_textView_title_cycle_margin_bottom"
         android:text="@string/texte_cycle"
+        android:textSize="@dimen/activity_home_textView_all_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="@dimen/activity_home_textView_title_cycle_constraintHorizontal_bias"
-        app:layout_constraintVertical_bias="@dimen/activity_home_textView_cycle_constraintVertical_bias"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textWeb"
@@ -81,12 +83,13 @@
         android:layout_marginEnd="@dimen/activity_home_textView_title_web_margin_end"
         android:layout_marginBottom="@dimen/activity_home_textView_title_web_margin_bottom"
         android:text="@string/texte_web"
-        app:layout_constraintHorizontal_bias="@dimen/activity_home_textView_title_web_constraintHorizontal_bias"
-        app:layout_constraintVertical_bias="@dimen/activity_home_textView_web_constraintVertical_bias"
+        android:textSize="@dimen/activity_home_textView_all_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="15.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/buttonPermission"
@@ -178,6 +181,7 @@
         android:layout_marginEnd="@dimen/activity_home_textView_title_save_margin_end"
         android:layout_marginBottom="@dimen/activity_home_textView_title_save_margin_bottom"
         android:text="@string/save_texte"
+        android:textSize="@dimen/activity_home_textView_all_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="@dimen/activity_home_textView_title_save_constraintHorizontal_bias"

@@ -33,23 +33,19 @@ class CycleActivity : AppCompatActivity(){
             // Finaliser la transition
             transaction.commit()
         }
-
-        //Log.i(TAG, "Owner onCreate")
         lifecycle.addObserver(ObserverCycle())
         //affichage à l'écran dans un TextView
         //modification du TextView
         startTextView= findViewById(R.id.logView)
-        startTextView.text="Etat actuel de l'activité : Owner onCreate"
+        startTextView.text=getString(R.string.text_act_onCreate)
     }
 
     //état onStart
     override fun onStart() {
         super.onStart()
-        //Log.i(TAG, "Owner onStart")
-        //affichage à l'écran dans un TextView
         //modification du TextView
         startTextView= findViewById(R.id.logView)
-        startTextView.text="Etat actuel de l'activité : Owner onStart"
+        startTextView.text=getString(R.string.text_act_onStart)
     }
     //état onPause
     override fun onPause() {
@@ -60,11 +56,9 @@ class CycleActivity : AppCompatActivity(){
     //état onResume
     override fun onResume() {
         super.onResume()
-        //Log.i(TAG, "Owner onResume")
-        //affichage à l'écran dans un TextView
         //modification du TextView
         startTextView= findViewById(R.id.logView)
-        startTextView.text="Etat actuel de l'activité : Owner onResume"
+        startTextView.text=getString(R.string.text_act_onResume)
     }
     //état onStop
     override fun onStop() {
@@ -78,6 +72,6 @@ class CycleActivity : AppCompatActivity(){
         //logs
         Log.i(TAG, "Owner onDestroy")
         //un toast quand l'activité est complètement détruite
-        Toast.makeText(this@CycleActivity, "Destroy !", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@CycleActivity, getString(R.string.text_act_destroy), Toast.LENGTH_LONG).show()
     }
 }

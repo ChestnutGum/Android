@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.widget.*
 import org.json.JSONObject
 import java.io.File
-import java.lang.StringBuilder
 import java.util.*
 
 class StorageActivity : AppCompatActivity() {
@@ -39,9 +38,6 @@ class StorageActivity : AppCompatActivity() {
         myDate = findViewById(R.id.date) //../../..
         myDateTitle = findViewById(R.id.dateTitle) //date
 
-//id : loginTitle
-        //var:loginTitle
-        //constante: LOGIN_TITLE
         //instance de calendrier
         val cal: Calendar = Calendar.getInstance()
         val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
@@ -113,7 +109,7 @@ class StorageActivity : AppCompatActivity() {
                 .create().show()
 
         } else {
-            Toast.makeText(this@StorageActivity, "Aucune information fournie", Toast.LENGTH_LONG)
+            Toast.makeText(this@StorageActivity, getString(R.string.text_aucune_info), Toast.LENGTH_LONG)
                 .show()
         }
     }

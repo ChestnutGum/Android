@@ -114,7 +114,7 @@
     <dimen name="activity_home_textView_title_cycle_height">19dp</dimen>
     <dimen name="activity_home_textView_title_cycle_margin_top">332dp</dimen>
     <dimen name="activity_home_textView_title_cycle_margin_bottom">380dp</dimen>
-    <dimen name="activity_home_textView_title_cycle_margin_start">86dp</dimen>
+    <dimen name="activity_home_textView_title_cycle_margin_start">95dp</dimen>
     <dimen name="activity_home_textView_title_cycle_margin_end">250dp</dimen>
     <dimen name="activity_home_textView_cycle_constraintVertical_bias">0.0</dimen>
 
@@ -171,7 +171,7 @@
 
 
 
-
+    <dimen name="activity_home_textView_all_size">13sp</dimen>
 
 
 

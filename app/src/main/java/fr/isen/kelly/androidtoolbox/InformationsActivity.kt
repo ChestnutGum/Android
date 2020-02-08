@@ -27,13 +27,13 @@ import android.view.View
 import com.google.android.gms.location.*
 
 
-class InformationsActivity : AppCompatActivity() { //LocationListener
+class InformationsActivity : AppCompatActivity() {
     lateinit var mLocationRequest: LocationRequest
     private lateinit var myButtonPicture: ImageButton
     lateinit var mLastLocation: Location
     lateinit var mLatitudeText: TextView
     lateinit var mLongitudeText: TextView
-    //var locationManager:LocationManager=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_informations)
@@ -65,31 +65,7 @@ class InformationsActivity : AppCompatActivity() { //LocationListener
         }
     }
 
-    //private fun showCurrentPosition(){
-    //locationManager=getSystemService(Context.LOCATION_SERVICE
-    //if(AcitivityCompat.checkSelfPermission(context:this,Manifest.permission.ACCESS_COARSE_LOCATION)==PackageManager.PERMISSION_GRANTED){
 
-    //locationManager.getRequestLocationUpdates(locationManager.NETWORK_PROVIDER,2000,1f,this)
-    //val location=locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
-
-    //}
-    //}
-
-
-    //override onLocationChanged(location:Location?){
-    //mytextview.text=getString(R.String.permission_location,location?.latitude,location?.longitude) (dans le fichier string "Latitude: %1$f
-    //}
-
-    //override onStop(){
-    //super.onStop()
-    //locationManager.removeUpdates(this)
-    //}
-
-    //override fun onProviderDisabled(provider:String){
-    //val intent=Intent(Setting.ACTION_LOCATION_SOURCE_SETTINGS)
-    //startAcitivty(intent)
-    //Toast."gPS désativé"
-    //}
     //------------------------------------PARTIE LOCALISATION -------------------------------------
     private fun startLocationUpdates() {
 
@@ -194,7 +170,7 @@ class InformationsActivity : AppCompatActivity() { //LocationListener
         ) { _, which ->
             when (which) {
                 0 -> launchGallery()
-                1 -> takePhotoFromCamera()//permissionCamera()
+                1 -> takePhotoFromCamera()
             }
 
         }

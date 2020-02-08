@@ -62,8 +62,15 @@
     <string name="text_longitude">"Longitude : "</string>
     <string name="titre_infos_android">"Accès aux informations Android"</string>
     <string name="text_camera">"camera"</string>
+    <string name="text_act_onCreate">"Etat actuel de l'activité : Owner onCreate"</string>
+    <string name="text_act_onStart">"Etat actuel de l'activité : Owner onStart"</string>
+    <string name="text_act_onResume">"Etat actuel de l'activité : Owner onResume"</string>
+    <string name="text_act_destroy">"Destroy !"</string>
+    <string name="text_aucune_info">"Aucune information fournie"</string>
+    <string name="text_error">"That didn't work!"</string>
 
 
+    Etat actuel de l'activité : Owner onResume
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
