@@ -12,7 +12,6 @@
         android:layout_width="397dp"
         android:layout_height="689dp"
         android:layout_marginStart="@dimen/activity_web_margin_start"
-        android:layout_marginTop="@dimen/activity_web_margin_top"
         android:layout_marginEnd="@dimen/activity_web_margin_end"
         android:layout_marginBottom="@dimen/activity_web_margin_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
