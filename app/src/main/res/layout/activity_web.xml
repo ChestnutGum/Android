@@ -9,8 +9,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listContactApi"
-        android:layout_width="395dp"
-        android:layout_height="615dp"
+        android:layout_width="397dp"
+        android:layout_height="689dp"
         android:layout_marginStart="@dimen/activity_web_margin_start"
         android:layout_marginTop="@dimen/activity_web_margin_top"
         android:layout_marginEnd="@dimen/activity_web_margin_end"
