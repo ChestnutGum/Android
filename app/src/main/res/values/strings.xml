@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidToolBox</string> //à personnaliser kelly B.
+    <string name="app_name">AndroidToolBox Kelly B.</string> //à personnaliser kelly B.
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
