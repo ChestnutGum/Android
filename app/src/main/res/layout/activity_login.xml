@@ -27,8 +27,8 @@
 
     <TextView
         android:id="@+id/myTitleCo"
-        android:layout_width="@dimen/activity_login_textView_title_width"
-        android:layout_height="@dimen/activity_login_textView_title_height"
+        android:layout_width="146dp"
+        android:layout_height="45dp"
         android:text="@string/title_co_texte"
         android:textAlignment="center"
         android:textSize="@dimen/activity_login_textView_title_size"
